@@ -6,6 +6,10 @@ import App from './App'
 import router from './router'
 import store from './store'
 import './assets/main.css'
+import './assets/boxStyles.css'
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
+Vue.component('icon', Icon)
 
 Vue.use(Vuex)
 
@@ -16,6 +20,6 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App },
+  components: { App, Icon },
   store
 })

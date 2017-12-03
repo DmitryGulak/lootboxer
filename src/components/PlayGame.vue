@@ -1,9 +1,6 @@
 <template>
   <div class="click-page">
-    <button @click="handlePlay(1)" class="big-btn" v-if="points < 50">WALK</button>
-    <button @click="handlePlay(5)" class="big-btn" v-if="points >= 50 && points < 200">SHOOT</button>
-    <button @click="handlePlay(10)" class="big-btn" v-if="points >= 200 && points < 500">REGENERATE</button>
-    <button @click="handlePlay(15)" class="big-btn" v-if="points >= 500 && points">SEARCH CONTENT</button>
+    <button @click="handlePlay(1)" class="big-btn">WALK</button>
   </div>
 </template>
 

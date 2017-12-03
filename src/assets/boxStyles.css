@@ -1,0 +1,9 @@
+.box.shity button {
+  background: #6f4723;
+  color: #fff;
+}
+
+.box.not-shity button {
+  background: #eee;
+  color: #000;
+}
