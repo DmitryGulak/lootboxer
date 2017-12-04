@@ -1,56 +1,29 @@
 export default {
-  'shity lootbox': {
+  'shitty lootbox': {
     cost: 100,
-    styleClass: 'shity',
+    styleClass: 'shitty',
     items: [
-      {
-        name: '1 bot',
-        action (state, rootState, dispatch, commit) {
-          commit('addBots', 1, {root: true})
-        }
-      },
-      {
-        name: '2 bots',
-        action (state, rootState, dispatch, commit) {
-          commit('addBots', 1, {root: true})
-        }
-      }
+      '1 bot',
+      '2 bots',
+      'shitty left sock',
+      'shitty right sock',
+      'piece of game disc'
     ]
   },
-  'not shity lootbox': {
+  'not shitty lootbox': {
     cost: 1000,
-    styleClass: 'not-shity',
+    styleClass: 'not-shitty',
     items: [
-      {
-        name: '10 bots',
-        action (state, rootState, dispatch, commit) {
-          commit('addBots', 5, {root: true})
-        }
-      },
-      {
-        name: '5 bots',
-        action (state, rootState, dispatch, commit) {
-          commit('addBots', 5, {root: true})
-        }
-      }
+      '5 bots',
+      '10 bots'
     ]
   },
   'wood lootbox': {
     cost: 5000,
     styleClass: 'wood',
     items: [
-      {
-        name: '20 bots',
-        action (state, rootState, dispatch, commit) {
-          commit('addBots', 5, {root: true})
-        }
-      },
-      {
-        name: '13 bots',
-        action (state, rootState, dispatch, commit) {
-          commit('addBots', 5, {root: true})
-        }
-      }
+      '13 bots',
+      '20 bots'
     ]
   }
 }

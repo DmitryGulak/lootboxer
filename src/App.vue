@@ -7,10 +7,13 @@
     <div class="container">
       <ul class="game-menu">
         <li>
-          <router-link class="menu-btn" :to="{name: 'PlayGame'}"><icon name="gamepad" scale="1"></icon> Play <icon name="gamepad" scale="1"></icon></router-link>
+          <router-link class="menu-btn" :to="{name: 'PlayGame'}"><icon name="gamepad" scale="1"></icon> Play</router-link>
         </li>
         <li>
-          <router-link class="menu-btn" :to="{name: 'OpenBox'}"><icon name="gift" scale="1"></icon> lootbox <icon name="gift" scale="1"></icon></router-link>
+          <router-link class="menu-btn" :to="{name: 'OpenBox'}"><icon name="gift" scale="1"></icon> lootbox</router-link>
+        </li>
+        <li>
+          <router-link class="menu-btn" :to="{name: 'PlayerItems'}"><icon name="cube" scale="1"></icon> items</router-link>
         </li>
       </ul>
       <h3 class="points-label" ref="pointsLabel"><span>{{showPoints}}</span> coins</h3>
@@ -24,7 +27,7 @@
   import { mapActions } from 'vuex'
   import { EventBus } from './event-bus.js'
   import anime from 'animejs'
-  import Icon from "../node_modules/vue-awesome/components/Icon.vue";
+  import Icon from "../node_modules/vue-awesome/components/Icon.vue"
   export default {
     components: {Icon},
     name: 'app',
@@ -49,8 +52,8 @@
         anime({
           targets: self,
           showPoints: newValue,
-          round: 1,
-          duration: 1800
+          round: 0.5,
+          duration: 3000
         })
       }
     },
@@ -69,7 +72,7 @@
 
       setInterval(() => {
         self.iterateBots()
-      }, 300)
+      }, 500)
     }
   }
 </script>

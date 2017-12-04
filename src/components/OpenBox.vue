@@ -4,7 +4,7 @@
       <li v-for="(data, box) in boxes" v-bind:class="['box', data['styleClass']]" v-if="data.cost <= playerPoints">
         <button @click="handleOpen(data)"><span>{{box}}</span> <span class="cost">{{data.cost}}</span></button>
         <ul>
-          <li v-for="item in data['items']">{{item.name}}</li>
+          <li v-for="item in data['items']">{{item}}</li>
         </ul>
       </li>
     </ul>
