@@ -1,29 +1,29 @@
 export default {
-  'shitty lootbox': {
+  'cs': {
     cost: 100,
     styleClass: 'shitty',
     items: [
-      '1 bot',
-      '2 bots',
+      '1 will',
+      '2 wills',
       'shitty left sock',
       'shitty right sock',
-      'piece of game disc'
+      'piece of will'
     ]
   },
-  'not shitty lootbox': {
+  'simple case': {
     cost: 1000,
     styleClass: 'not-shitty',
     items: [
-      '5 bots',
-      '10 bots'
+      '5 wills',
+      '10 wills'
     ]
   },
-  'wood lootbox': {
+  'case': {
     cost: 5000,
     styleClass: 'wood',
     items: [
-      '13 bots',
-      '20 bots'
+      '13 wills',
+      '20 wills'
     ]
   }
 }

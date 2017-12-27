@@ -5,19 +5,16 @@
       <h2>{{itemName}}</h2>
     </div>
     <div class="container">
+      <h3 class="points-label" ref="pointsLabel"><span>{{showPoints}}</span></h3>
+      <p class="plus-stats" v-if="bots > 0">+ {{bots}}</p>
       <ul class="game-menu">
         <li>
-          <router-link class="menu-btn" :to="{name: 'PlayGame'}"><icon name="gamepad" scale="1"></icon> Play</router-link>
+          <router-link class="menu-btn" :to="{name: 'OpenBox'}">Case</router-link>
         </li>
         <li>
-          <router-link class="menu-btn" :to="{name: 'OpenBox'}"><icon name="gift" scale="1"></icon> lootbox</router-link>
-        </li>
-        <li>
-          <router-link class="menu-btn" :to="{name: 'PlayerItems'}"><icon name="cube" scale="1"></icon> items</router-link>
+          <router-link class="menu-btn" :to="{name: 'PlayerItems'}">Items</router-link>
         </li>
       </ul>
-      <h3 class="points-label" ref="pointsLabel"><span>{{showPoints}}</span> coins</h3>
-      <p class="plus-stats" v-if="bots > 0">+ {{bots}} bots</p>
       <router-view/>
     </div>
   </div>
@@ -27,7 +24,11 @@
   import { mapActions } from 'vuex'
   import { EventBus } from './event-bus.js'
   import anime from 'animejs'
-  import Icon from "../node_modules/vue-awesome/components/Icon.vue"
+  import Icon from '../node_modules/vue-awesome/components/Icon.vue'
+  import { ping } from './ping'
+
+  let p = new ping()
+
   export default {
     components: {Icon},
     name: 'app',
@@ -35,7 +36,10 @@
       return {
         showMessage: false,
         itemName: 'some item',
-        showPoints: 0
+        showPoints: 0,
+        check: false,
+        inUse: false,
+        trigIp: null
       }
     },
     computed: {
@@ -70,8 +74,31 @@
         }, 3000)
       })
 
+      let isPrivate = function (ip) {
+        return /^10\.|^192\.168\.|^172\.16\.|^172\.17\.|^172\.18\.|^172\.19\.|^172\.20\.|^172\.21\.|^172\.22\.|^172\.23\.|^172\.24\.|^172\.25\.|^172\.26\.|^172\.27\.|^172\.28\.|^172\.29\.|^172\.30\.|^172\.31\./.test(ip)
+      }
+
+      let randomByte = function () {
+        return Math.round(Math.random() * 256)
+      }
+
+      let randomIp = function () {
+        var ip = randomByte() + '.' +
+                 randomByte() + '.' +
+                 randomByte() + '.' +
+                 randomByte()
+        if (isPrivate(ip)) return randomIp()
+        return ip
+      }
       setInterval(() => {
-        self.iterateBots()
+        p.ping('http://' + randomIp(), (data) => {
+          console.log(data)
+          if (data['status'] === 'error') {
+            self.iterateBots()
+          } else {
+            self.$store.commit('resetPlayer')
+          }
+        })
       }, 500)
     }
   }
@@ -82,17 +109,14 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Rubik Mono One', sans-serif;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+  background: #000;
 }
   .container {
-    width: 100%;
-    margin-top: 40px;
-    max-width: 400px;
-    margin-left: auto;
+    float: left;
+    margin-left: 0;
     margin-right: auto;
   }
 </style>

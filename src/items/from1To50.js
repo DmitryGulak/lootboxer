@@ -15,7 +15,7 @@ export default {
       dispatch('handleAddItem', 'shitty right sock', {root: true})
     }
   },
-  'piece of game disc': {
+  'piece of will': {
     cost: 50,
     type: 'collectable',
     rarity: 0.2,

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One');
 * {
   outline: none;
   margin: 0;
@@ -9,33 +10,35 @@ body {
 }
 
 .points-label {
-  font-weight: 700;
-  margin: 30px 0 10px 0;
-  font-size: 40px;
-  text-shadow: 0px 5px 5px rgba(150, 150, 150, 1);
+  text-align: left;
+  margin: 0.01em 0 0 0.05em;
+  font-size: 15em;
+  color: #fff;
+  line-height: 0.9;
 }
 
 .plus-stats {
-  padding: 10px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  text-align: left;
+  font-size: 2em;
+  color: #979797;
+  margin-left: 1em;
 }
 
 .big-btn {
-  padding: 20px;
+  padding: 2em;
   background: #000;
-  font-size: 20px;
+  font-size: 5em;
   color: #fff;
   font-weight: 700;
   border: none;
-  border-radius: 30px;
+  border-radius: 10em;
   cursor: pointer;
 }
 
 .menu-btn {
-  padding: 10px 2px 4px 2px;
-  color: #30a3f2;
-  font-size: 14px;
+  padding: 1em 0.5em 0.3em 0.5em;
+  color: #fff;
+  font-size: 2em;
   text-decoration: none;
   font-weight: 600;
   text-transform: uppercase;
@@ -43,15 +46,17 @@ body {
 }
 
 .menu-btn.router-link-exact-active {
-  border-bottom: 2px #30a3f2 solid;
+  border-bottom: 0.3em #fff solid;
 }
 
 ul.game-menu {
   display: flex;
   list-style: none;
-  margin-top: 10px;
+  margin-top: 1em;
+  margin-bottom: 4em;
+  margin-left: 2em;
   padding-left: 0;
-  justify-content: space-around;
+  justify-content: left;
 }
 
 ul.game-menu li {
@@ -59,19 +64,20 @@ ul.game-menu li {
 }
 
 ul.lootbox-list {
-  padding-left: 0;
+  padding-left: 2em;
   list-style: none;
 }
 
 ul.lootbox-list li  button{
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  margin-bottom: 15px;
+  font-family: 'Rubik Mono One', sans-serif;
+  justify-content: left;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
   width: 100%;
-  font-size: 20px;
-  background: none;
-  border: 1px #000 solid;
+  font-size: 1.5em;
+  background: #fff;
+  border: none;
   border-left: none;
   border-right: none;
   cursor: pointer;
@@ -79,15 +85,20 @@ ul.lootbox-list li  button{
 
 ul.lootbox-list > li {
   text-align: left;
-  padding-bottom: 15px;
+  padding-bottom: 2em;
 }
 
 ul.lootbox-list > li > ul {
-  padding-left: 20px;
+  padding-left: 3em;
+  list-style: none;
 }
 
 ul.lootbox-list li  button span {
   display: block;
+  font-size: 1.5em;
+}
+ul.lootbox-list li  button span.cost {
+  font-size: 1em;
 }
 
 .new-item-message {

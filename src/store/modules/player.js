@@ -1,6 +1,6 @@
 export default {
   state: {
-    points: 10000,
+    points: 1,
     bots: 1,
     items: {}
   },
@@ -19,6 +19,11 @@ export default {
     },
     incrementItem (state, item) {
       state.items[item] += 1
+    },
+    resetPlayer (state) {
+      state.points = 0
+      state.bots = 1
+      state.items = {}
     }
   },
   actions: {
